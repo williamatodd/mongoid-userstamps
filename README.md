@@ -14,7 +14,7 @@ Mongoid::Userstamp is tested on the following versions:
 ## Install
 
 ```ruby
-  gem 'mongoid_userstamp'
+  gem 'mongoid-userstamps'
 ```
 
 ## Usage
