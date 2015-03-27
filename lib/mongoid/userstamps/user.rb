@@ -33,7 +33,7 @@ module Mongoid
           self.current = old
         end
 
-        def userstamps_user
+        def userstamps_user(opts = {})
           @userstamps_user ||= Mongoid::Userstamps::Config::User.new(opts)
         end
       end
