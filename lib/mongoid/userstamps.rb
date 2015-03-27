@@ -21,6 +21,10 @@ module Mongoid
         include Deleted
       end
     end
+
+    def self.config
+      Mongoid::Userstamps::Config.module_eval(&Proc.new)
+    end
   end
 end
 
