@@ -7,7 +7,7 @@ require 'mongoid/userstamps/model'
 require 'mongoid/userstamps/created'
 require 'mongoid/userstamps/updated'
 require 'mongoid/userstamps/deleted'
-require 'mongoid/Userstamps/railtie' if defined? Rails
+require 'mongoid/userstamps/railtie' if defined? Rails
 
 module Mongoid
   module Userstamps
