@@ -7,17 +7,21 @@ module Mongoid
         Mongoid::Userstamps::Config.add_model_class(self)
       end
 
-      def userstamps_model
-        self.class.userstamps_model
+      def userstamps_config
+        self.class.userstamps_config
       end
 
       class_methods do
-        def userstamps_model(opts = {})
-          @userstamps_model ||= Mongoid::Userstamps::Config::Model.new(opts)
+        def userstamps_model
+          @userstamps_model ||= Mongoid::Userstamps::Config::Model.new(self)
         end
 
         def current_user
-          Mongoid::Userstamps::Config.current_user(userstamps_model.user_model)
+          userstamps_config.current_user(userstamps_model.user_model)
+        end
+
+        def userstamps_config
+          Mongoid::Userstamps::Config
         end
       end
     end

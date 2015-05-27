@@ -10,7 +10,7 @@ module Mongoid
           include Mongoid::Userstamps::Model
         end
 
-        belongs_to userstamps_model.created_name, {
+        belongs_to userstamps_config.created_name, {
           class_name: userstamps_model.user_model,
           inverse_of: nil
         }
@@ -20,8 +20,8 @@ module Mongoid
 
       def set_created_by
         user = self.class.current_user
-        return if !user || self.public_send(userstamps_model.created_name)
-        self.public_send("#{userstamps_model.created_name}=", user)
+        return if !user || self.public_send(userstamps_config.created_name)
+        self.public_send("#{userstamps_config.created_name}=", user)
       end
     end
   end

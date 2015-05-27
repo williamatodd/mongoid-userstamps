@@ -18,8 +18,9 @@ Dir["#{File.dirname(__FILE__)}/models/*.rb"].each { |f| require f }
 ActiveSupport::TestCase.test_order = :random
 
 class BaseTest < ActiveSupport::TestCase
-  def teardown
+  teardown do
     Mongoid::Sessions.default.use('mongoid_userstamps_test').drop
+    Mongoid::Userstamps::Config.reset
   end
 end
 

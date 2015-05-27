@@ -6,12 +6,8 @@ module Mongoid
       class User
         attr_accessor :reader
 
-        def initialize(opts = {})
-          @reader = opts[:reader]
-        end
-
-        def reader
-          @reader || Mongoid::Userstamps::Config.user_reader
+        def initialize(model)
+          @reader = "current_#{model.name.underscore}".to_sym
         end
       end
     end

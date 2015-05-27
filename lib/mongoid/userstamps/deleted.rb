@@ -10,7 +10,7 @@ module Mongoid
           include Mongoid::Userstamps::Model
         end
 
-        belongs_to userstamps_model.deleted_name, {
+        belongs_to userstamps_config.deleted_name, {
           class_name: userstamps_model.user_model,
           inverse_of: nil
         }
@@ -20,8 +20,8 @@ module Mongoid
 
       def set_deleted_by
         user = self.class.current_user
-        return if !user || self.public_send("#{userstamps_model.deleted_name}_id_changed?")
-        self.public_send("#{userstamps_model.deleted_name}=", user)
+        return if !user || self.public_send("#{userstamps_config.deleted_name}_id_changed?")
+        self.public_send("#{userstamps_config.deleted_name}=", user)
       end
     end
   end

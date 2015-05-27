@@ -10,11 +10,10 @@ module Mongoid
         attr_accessor :created_name
         attr_accessor :updated_name
         attr_accessor :deleted_name
-        attr_accessor :user_reader
 
-        def eval
-          instance_eval(&Proc.new)
-        end
+        DEFAULT_CREATED_NAME = :created_by
+        DEFAULT_UPDATED_NAME = :updated_by
+        DEFAULT_DELETED_NAME = :deleted_by
 
         def user_classes
           @user_classes ||= []
@@ -23,10 +22,7 @@ module Mongoid
         def add_user_class(klass)
           user_classes << klass
           model_classes.each do |model|
-            config = model.userstamps_model
-            if !config.user_model_defined?
-              model.relations[config.created_name.to_s].try(:[]=, :class_name, config.user_model)
-            end
+            model.userstamps_model.set_user_model!
           end
         end
 
@@ -39,19 +35,15 @@ module Mongoid
         end
 
         def created_name
-          @created_name ||= :created_by
+          @created_name ||= DEFAULT_CREATED_NAME
         end
 
         def updated_name
-          @updated_name ||= :updated_by
+          @updated_name ||= DEFAULT_UPDATED_NAME
         end
 
         def deleted_name
-          @deleted_name ||= :deleted_by
-        end
-
-        def user_reader
-          @user_reader ||= :current_user
+          @deleted_name ||= DEFAULT_DELETED_NAME
         end
 
         def current_user(user_class)
@@ -71,6 +63,12 @@ module Mongoid
           else
             store[key] = value
           end
+        end
+
+        def reset
+          @created_name = DEFAULT_CREATED_NAME
+          @updated_name = DEFAULT_UPDATED_NAME
+          @deleted_name = DEFAULT_DELETED_NAME
         end
       end
     end

@@ -12,10 +12,6 @@ module Mongoid
         self.id == self.class.current.try(:id)
       end
 
-      def userstamps_user
-        self.class.userstamps_user
-      end
-
       class_methods do
         def current
           Mongoid::Userstamps::Config.current_user(self)
@@ -33,8 +29,8 @@ module Mongoid
           self.current = old
         end
 
-        def userstamps_user(opts = {})
-          @userstamps_user ||= Mongoid::Userstamps::Config::User.new(opts)
+        def userstamps_user
+          @userstamps_user ||= Mongoid::Userstamps::Config::User.new(self)
         end
       end
     end
