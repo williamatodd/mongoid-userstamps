@@ -11,3 +11,5 @@
 /.rbenv-version
 /*.gem
 /Gemfile.lock
+
+/coverage
