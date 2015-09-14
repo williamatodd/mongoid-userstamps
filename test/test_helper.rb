@@ -19,7 +19,7 @@ ActiveSupport::TestCase.test_order = :random
 
 class BaseTest < ActiveSupport::TestCase
   teardown do
-    Mongoid::Sessions.default.use('mongoid_userstamps_test').drop
+    Mongoid.default_client.use('mongoid_userstamps_test').database.drop
     Mongoid::Userstamps::Config.reset
   end
 end
