@@ -12,7 +12,8 @@ module Mongoid
 
         belongs_to userstamps_config.deleted_name, {
           class_name: userstamps_model.user_model,
-          inverse_of: nil
+          inverse_of: nil,
+          optional: true
         }
 
         set_callback :destroy, :before, :set_deleted_by
