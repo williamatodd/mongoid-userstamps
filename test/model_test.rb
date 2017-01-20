@@ -33,7 +33,7 @@ class ModelTest < BaseTest
     Mongoid::Userstamps::Config.set_current_user(User, nil)
     @post = Post.new
     @post.set_created_by
-    assert_equal nil, @post.created_by
+    assert_nil @post.created_by
   end
 
   test 'set_updated_by' do
@@ -49,7 +49,7 @@ class ModelTest < BaseTest
     Mongoid::Userstamps::Config.set_current_user(User, nil)
     @post = Post.new
     @post.set_updated_by
-    assert_equal nil, @post.updated_by
+    assert_nil @post.updated_by
   end
 
   test 'set_deleted_by' do
@@ -65,7 +65,7 @@ class ModelTest < BaseTest
     Mongoid::Userstamps::Config.set_current_user(Person, nil)
     @comment = Comment.new
     @comment.set_deleted_by
-    assert_equal nil, @comment.deleted_by
+    assert_nil @comment.deleted_by
   end
 end
 
