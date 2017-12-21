@@ -18,9 +18,9 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
 
-  s.post_install_message = File.read('UPGRADING') if File.exists?('UPGRADING')
+  s.post_install_message = File.read('UPGRADING') if File.exist?('UPGRADING')
 
-  s.add_dependency 'mongoid',       '>= 5.0.0', '< 6.2.0'
-  s.add_dependency 'activesupport', '>= 4.2.0', '< 5.1.0'
+  s.add_dependency 'mongoid',       '>= 5.0.0', '< 6.3.0'
+  s.add_dependency 'activesupport', '>= 4.2.0', '< 5.2.0'
 end
 

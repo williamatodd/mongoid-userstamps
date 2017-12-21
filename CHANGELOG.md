@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.3
+
+* Mongoid 6.2 support
+* Rails 5.1 support
+
 ## 3.1.2
 
 * Mongoid 6.1 support
