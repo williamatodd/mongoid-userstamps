@@ -4,10 +4,9 @@ module Mongoid
   module Userstamps
     module Config
       class Model
-        attr_accessor :user_model
-
         def initialize(model)
           @model = model
+          @user_model = nil
         end
 
         def config

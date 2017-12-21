@@ -7,10 +7,6 @@ module Mongoid
   module Userstamps
     module Config
       class << self
-        attr_accessor :created_name
-        attr_accessor :updated_name
-        attr_accessor :deleted_name
-
         DEFAULT_CREATED_NAME = :created_by
         DEFAULT_UPDATED_NAME = :updated_by
         DEFAULT_DELETED_NAME = :deleted_by
@@ -34,14 +30,23 @@ module Mongoid
           model_classes << klass
         end
 
+        def created_name=(value)
+          @created_name = value
+        end
         def created_name
           @created_name ||= DEFAULT_CREATED_NAME
         end
 
+        def updated_name=(value)
+          @updated_name = value
+        end
         def updated_name
           @updated_name ||= DEFAULT_UPDATED_NAME
         end
 
+        def deleted_name=(value)
+          @deleted_name = value
+        end
         def deleted_name
           @deleted_name ||= DEFAULT_DELETED_NAME
         end
