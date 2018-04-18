@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.post_install_message = File.read('UPGRADING') if File.exist?('UPGRADING')
 
-  s.add_dependency 'mongoid',       '>= 5.0.0', '< 6.3.0'
-  s.add_dependency 'activesupport', '>= 4.2.0', '< 5.2.0'
+  s.add_dependency 'mongoid',       '>= 6.0.0', '< 8.0'
+  s.add_dependency 'activesupport', '>= 4.2.0'
 end
 
