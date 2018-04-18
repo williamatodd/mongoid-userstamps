@@ -1,5 +1,30 @@
 # Changelog
 
+## 3.1.3
+
+* Mongoid 6.2 support
+* Rails 5.1 support
+
+## 3.1.2
+
+* Mongoid 6.1 support
+
+## 3.1.1
+
+* Remove rails 5 warnings
+
+## 3.1.0
+
+* Mongoid 6 support
+
+## 3.0.0.alpha1
+
+* Mongoid 5 support
+
+## 2.0.0
+
+Gem has been imported and rewrote.
+
 ## [0.4.1](https://github.com/tbpro/mongoid_userstamp/releases/tag/v0.4.1) - 2014-08-21
 
 * Improvement

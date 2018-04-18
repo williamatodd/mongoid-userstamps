@@ -2,8 +2,6 @@ require 'test_helper'
 
 class ConfigTest < BaseTest
   class ModelClass
-    cattr_accessor :user_model
-
     def self.userstamps_model; self; end
     def self.user_model
       Mongoid::Userstamps::Config.user_classes.last
